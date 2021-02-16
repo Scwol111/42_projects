@@ -1,0 +1,167 @@
+#! /bin/bash
+​
+###############################################################################################
+../																# - bash: ../: is a directory
+​
+> g |																			# - КАТЯ bash: g: command not found
+g
+​
+cd .															# +
+export a a a a=b											 	# +
+​
+dsfugsdfgsdfg ctrl+\ -> ctrl+\ -> ctrl+\ -> echo $? --->>> 258 ??? 	
+dsfugsdfgsdfg ctrl+\ -> free line -> echo $? --->>> 258 ??? 	
+​
+ps -> kill 7605 --->>>  Terminated: 15 ???                      # + signal(SIGTERM, SIG_IGN),  но в этом случае процесс не убивается даже извне
+​
+ls > ">"          	                                            # + l
+​
+ls -la > a -> chmod 111 a -> ls > a > b > c | cat < c  			# не совпадает с баш. Логика не понятна
+​
+export a -> export > a | grep > b > c USER < a -> cat c 		# + l
+export > a | grep > b > c USER < a -> cat c -> ls  				# + l
+​
+cat -e < a                                                       # + l
+​
+chmod 111 b -> ls > b                                            # + l
+​
+'Hello World!'                                                   # + l
+echo 10 > 'abc'"f"                                               # + l
+echo 'Hello World!'                                              # + l
+echo jbkjnk                                                      # + l
+echo abc def                                                     # + l
+echo abc             def                                         # + l
+     echo    890     345                                         # + l
+ECHO 1223                                                        # + l
+echo "123" "456"                                                 # +
+echo "$"                                                         # +
+echo "$/"                                                        # +
+echo "$'"                                                        # +
+echo "$ "                                                        # +
+echo "$$"                                                        # +
+echo "\$" '\$' \$                                                # + l
+echo "$|$"                                                       # +
+echo -n 55                                                       # +
+echo -n ''                                                       # +
+echo -n 'jbbjhhd'                                                # + l
+echo 123 ;                                                       # +
+echo 123 ; echo 456                                              # + l
+echo "42 ;" ; echo "24 24"                                       # +
+echo -n -n -n 23                                                 # + l
+echo "\$ \#     |$/\n"                                           # +    
+echo "\$|$/"                                                     # +
+echo "Это #не комментарий"                                       # + l
+echo Это # Вот комментарий.                                      # + l
+echo This              is # comment                              # +
+echo Это \# не комментарий                                       # +
+echo 567t6 ; 890 -n mk ; echo 123                                # +
+echo 567t6 ; 890                                                 # +
+echo Это # комментарий                                           # + l
+echo 123 ; echo Это \# не комментарий                            # + l
+# пустая строка                                                  # +
+echo $LOGNAME                                                    # + l
+echo $LOGNAME\ууу                                                # + l
+echo $LOGNAME/ууу                                                # + l
+echo "123 $LOGNAME 456"                                          # +
+echo "123 $LOGNAMEeee 456"                                       # +
+echo "$LOGNAME/eee"                                              # +
+echo '$LOGNAME/eee'                                              # + l
+echo '$LOGNAME\eee   |'                                          # +
+echo '$PWD'                                                      # +
+echo $PWD                                                        # +
+echo "$PWD"                                                      # +
+echo -n 5 | cat -e                                              # + l
+echo 5 | cat -e                                                 # + 
+echo "dd" | cat -e                                              # +
+echo '||' | cat -e                                              # +
+echo 42 23 | grep 4 | cat -e                                    # + l
+ls 1111111 | grep 111 | cat -e                                  # + l?
+echo 123 > 1                                                    # + l
+echo '123 > 2'                                                  # + l
+echo "123 > 1"                                                  # + l
+echo > 1                                                        # + l
+echo "> 1"                                                      # + l
+echo 42 > 2 ; echo 22 >> 2 ; cat -e  2                          # + l
+grep 2 < 1                                                      # + l
+echo < 1                                                        # + l
+grep < 1                                                        # + l
+grep 4 < 1 | cat -e     	                                    # + l
+export qwe=123456 ; echo $qwe                                   # + l
+echo "$qwe"'$qwe'                                                 # + l
+echo "$qwe" '$qwe'                                                # + l
+ls                                                              # + l
+./ls                                                           	# + l
+;;                                                                             # + l 
+;                                                                              # + l 
+|                                                                              # + l 
+||                                                                             # + l 
+;@@;                                                                           # + l 
+| |                                                                            # + l 
+""                                                                             # + l
+echo " \'   \\    \$    \`  "                                                  # + l
+echo ' \'   \\    \$    \`  ''                                                 # + l
+echo \'                                                                        # + l
+echo "\'"                                                                      # + l
+echo 5 | cat -e                                                                # + l
+echo 5 || cat -e                                                               # + l
+echo 5 ||| cat -e                                                              # + l
+echo 5                                                                         # + l
+ls;;                                                                            # + l
+ls; ;                                                                           # + l
+ls |                                                                            # + l
+ls||                                                                            # + l
+ls | |                                                                          # + l
+echo $PWD                                                                       # +
+echo $321                                                                       # +
+echo $\321                                                                      # + l
+echo $|                                                                         # +
+echo $|cat                                                                      # +
+echo $|cat -e                                                                   # +
+echo $|321                                                                      # +  
+echo $;321                                                                      # +
+echo $/321                                                                      # +
+echo $'321'                                                                     # +
+echo $ 321                                                                      # +
+echo $"321"                                                                     # +
+echo "$'321"                                                                    # +
+export qwe=123456 ; echo $qwe													# + l
+echo $fdsgbkldmbklfdsmklfmd                                                     # + l
+echo str1"'str2'"                                                               # + l
+echo str1"'$str2'"                                                              # +
+echo 'str1'str2"str3 $PWD str4" "str5"'$PWD' $PWD "$PWD"                        # + l
+echo "hello><; world"                                                           # +
+echo $hfkdghldf$PWD                                                             # +
+echo ' """" '                                                                   # +
+echo " '''''' "                                                                 # +
+echo """"""""                                                                   # + l
+echo ''''''''                                                                   # +
+echo """"""""""              :""                                                # +
+echo """""""""",         wtf     :""                                            # +
+echo """""""""",         wtf     :""                                            # +
+echo '"""""""""",         wtf     :""'                                          # + l
+echo hello                       happy                               man        # +
+export = ; echo $?                                                              # + l
+export =  ; echo $?                                                             # + l
+export =123  ; echo $?                                                          # + l
+export 4= ; echo $?                                                             # + l
+export 4p=123  ; echo $?                                                        # +
+export p=123  ; echo $?                                                         # +
+export "s=c";export "$s=s";echo $s $c											# + l
+echo $?                                                                         # +
+echo '$?'                                                                       # +
+echo "$?"                                                                       # +
+echo $?$PWD                                                                     # + l
+echo $?$.                                                                       # +
+echo $.                                                                         # +
+echo $?123                                                                      # +
+echo "$?123"                                                                    # +
+echo $? | cat - e                                                               # + l
+echo $? | cat -e                                                                # +
+cho $? | cat -e                                                                 # +
+echo $? ; ls ; echo $?...                                                       # + l
+'e'c"h"o 5                                                                      # + l
+'echo' 5                                                                        # +
+'e'c"h"o 5                                                                     # +
+...$?...                                                                        # + l
+echo $? ; ls ; ...$?...                                                         # + l
+...$?... ; echo $? ; ls ; ...$?...                                             ...
