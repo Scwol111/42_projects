@@ -6,7 +6,7 @@
 /*   By: tclaudin <tclaudin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/18 14:49:51 by tclaudin          #+#    #+#             */
-/*   Updated: 2021/01/18 15:46:49 by tclaudin         ###   ########.fr       */
+/*   Updated: 2021/03/19 20:34:21 by tclaudin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ template<typename T>
 void Span::addNumber(T first, T last)
 {
 	for (T i = first; i != last; i++)
-		addNumber(*i);
+		_arr.insert(*i);
 }
 
 #endif

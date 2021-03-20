@@ -6,11 +6,13 @@
 /*   By: tclaudin <tclaudin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/26 13:13:15 by tclaudin          #+#    #+#             */
-/*   Updated: 2020/12/13 19:05:46 by tclaudin         ###   ########.fr       */
+/*   Updated: 2021/03/17 18:37:25 by tclaudin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cube3d.h"
+
+#include <stdio.h>
 
 int		raycast_utils(t_all *all, int *col)
 {

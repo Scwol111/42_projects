@@ -6,13 +6,13 @@
 /*   By: tclaudin <tclaudin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 14:36:47 by tclaudin          #+#    #+#             */
-/*   Updated: 2020/09/24 15:59:16 by tclaudin         ###   ########.fr       */
+/*   Updated: 2021/03/02 14:04:24 by tclaudin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_toupper(int c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (c - 32);

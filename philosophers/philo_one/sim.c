@@ -6,7 +6,7 @@
 /*   By: tclaudin <tclaudin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 16:29:34 by tclaudin          #+#    #+#             */
-/*   Updated: 2021/01/25 18:44:25 by tclaudin         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:15:51 by tclaudin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ static void		forking(t_philo *philo)
 {
 	if ((philo->name & 0x1) == 1)
 	{
-		take_fork(philo->left, philo->output, philo);
 		take_fork(philo->right, philo->output, philo);
+		take_fork(philo->left, philo->output, philo);
 	}
 	else
 	{
-		take_fork(philo->right, philo->output, philo);
 		take_fork(philo->left, philo->output, philo);
+		take_fork(philo->right, philo->output, philo);
 	}
 }
 
