@@ -1,0 +1,32 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+S_IP = "192.168.56.110"
+SW_IP = "192.168.56.111"
+
+S_NAME = "tclaudinS"
+SW_NAME = "tclaudinSW"
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/centos7"
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = 1
+    vb.memory = 1024
+  end
+
+  config.vm.define S_NAME do |server|
+    server.vm.hostname = S_NAME
+    server.vm.network "private_network", ip: S_IP
+    server.vm.synced_folder "./scripts", "/vagrant", create: true
+    server.vm.provision "shell", privileged: true, path: "scripts/server_install.sh"
+  end
+
+  config.vm.define SW_NAME do |client|
+    client.vm.hostname = SW_NAME
+    client.vm.network "private_network", ip: SW_IP
+    client.vm.synced_folder "./scripts", "/vagrant", create: true
+    client.vm.provision "shell", privileged: true, path: "scripts/client_install.sh"
+  end
+
+end

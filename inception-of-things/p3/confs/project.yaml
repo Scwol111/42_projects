@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: git-for-argocd
+spec:
+  destination:
+    name: ''
+    namespace: dev
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: manifests
+    repoURL: 'https://github.com/Scwol111/tclaudin_argocd'
+    targetRevision: HEAD
+    directory:
+      recurse: false
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

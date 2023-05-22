@@ -1,0 +1,108 @@
+version: '3.8'
+services:
+  nginx:
+    build: ./nginx
+    image: nginx_image
+    container_name: nginx_cont
+    networks:
+      - docker_local_net
+    ports:
+      - "80:80"
+      - "443:443"
+      - "22:22"
+    restart: always
+    depends_on:
+      - wordpress
+    volumes:
+      - nginx_site:/var/www/site/:ro
+      - wordpress_volume:/var/www/wordpress
+    env_file:
+      - .env
+  
+  mariadb:
+    build: ./mariadb
+    image: mariadb_image
+    container_name: mariadb_cont
+    networks:
+      - docker_local_net
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - mariadb:/var/lib/mysql
+    expose:
+      - 3306
+  
+  wordpress:
+    build: ./wordpress
+    image: wordpress_image
+    container_name: wordpress_cont
+    networks:
+      - docker_local_net
+    restart: always
+    volumes:
+      - wordpress_volume:/var/www/wordpress
+    depends_on:
+      - mariadb
+    env_file:
+      - .env
+    expose:
+      - 9000
+
+  adminer:
+    build: ./adminer
+    restart: always
+    image: adminer_image
+    container_name: adminer_cont
+    networks:
+      - docker_local_net
+    depends_on:
+      - mariadb
+    volumes:
+      - adminer_vol:/var/www/html/
+    expose:
+      - 5050
+
+  airflow:
+    build: ./airflow
+    image: airflow_image
+    container_name: airflow_cont
+    ports:
+      - "8080:8080"
+    volumes:
+      - airflowDags:/root/airflow/
+    restart: always
+    networks:
+      - docker_local_net
+    env_file:
+      - .env
+    expose:
+      - 8080
+    
+  ftps:
+    build: ./ftps
+    image: ftps_image
+    container_name: ftps_cont
+    ports:
+      - "21:21"
+      - "21000-21000:21000-21000"
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - docker_local_net
+    volumes:
+      - wordpress_volume:/var/www/wordpress
+    expose:
+      - 21
+
+volumes:
+  wordpress_volume:
+  nginx_site:
+  mariadb:
+  airflowDags:
+  ftp_vol:
+  adminer_vol:
+
+networks:
+  docker_local_net:

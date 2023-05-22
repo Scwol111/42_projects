@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+S_IP = "192.168.56.110"
+
+S_NAME = "tclaudinS"
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "centos/7"
+  config.vm.synced_folder "./confs", "/vagrant"
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = 2
+    vb.memory = 2048
+  end
+
+  config.vm.define S_NAME do |server|
+    server.vm.hostname = S_NAME
+    server.vm.network :private_network, ip: S_IP, hostname: true
+    server.vm.provision "shell", privileged: true, path: "scripts/server_install.sh"
+  end
+
+  config.vm.network "forwarded_port", guest: 80, host: 8080, protocol: "tcp"
+  config.vm.network "forwarded_port", guest: 6443, host: 6443, protocol: "tcp"
+end
